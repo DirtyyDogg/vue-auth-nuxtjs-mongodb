@@ -20,7 +20,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75
 
 # Create our own config files
 
-COPY .theia/mysql.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
+COPY .theia/mysqld.cnf /etc/mysql/mysql.conf.d/mysqld.cnf
 
 COPY .theia/client.cnf /etc/mysql/mysql.conf.d/client.cnf
 
