@@ -33,4 +33,17 @@ RUN cd /home/user/.theia/ \
  && yarn \
  && yarn theia build
 
-    
+# Configure language server executable for Theia.
+ENV CPP_CLANGD_COMMAND clangd-7
+
+# Add default Supervisor configuration.
+COPY supervisord.conf /etc/
+
+# Expose remote access ports.
+EXPOSE 22 8087 8088 8089 8090
+
+# Fallback workspace path for IDEs.
+ENV WORKSPACE /home/user/
+
+# Run all Supervisor services when the container starts.
+CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
