@@ -1,6 +1,13 @@
 FROM gitpod/workspace-full
 
-USER gitpod
+USER root
+
+RUN sudo adduser testaccount \
+    && sudo grep testaccount /etc/passwd 
+
+RUN sudo groupadd my-docker-group -g 4201 \
+  && sudo useradd -u 4201  --home-dir /srv/my-docker-user--create-home --system --no-user-group my-docker-user \
+  && sudo usermod -g my-docker-group my-docker-user    
 
 # Install Julia
 RUN sudo apt-get update \
@@ -20,3 +27,4 @@ RUN sudo apt-get update \
 # Give control back to Gitpod Layer
 USER root
 ##FROM gitpod/workspace-mongodb##
+USER gitpod
