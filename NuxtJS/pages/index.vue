@@ -8,6 +8,6 @@
 </template>
 <script>
 export default {
-    layout: 'defaultNoVuetify',
+    layout: 'default',
 }
 </script>

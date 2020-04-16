@@ -89,8 +89,10 @@
 </template>
 
 <script>
+/** middleware: 'auth',  */
 export default {
-    middleware: 'auth',
+    
+    /** middleware: 'auth',  */
   data () {
     return {
       clipped: false,

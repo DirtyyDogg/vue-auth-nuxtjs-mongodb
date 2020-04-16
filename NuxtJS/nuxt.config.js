@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
+import Api from './api/config/api.config'
 module.exports = {
   mode: 'universal',
   /*
@@ -39,8 +39,13 @@ module.exports = {
   buildModules: [
       '@nuxtjs/vuetify',
   ],
-  /*
-  ** Nuxt.js modules
+  server: {
+      port: 3000, // default: 3000
+      host: '0.0.0.0', // default: localhost,
+      timing: false
+    },
+    /*
+    ** Nuxt.js modules
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
@@ -85,7 +90,10 @@ module.exports = {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-  },
+    method:'post',
+    url:'logout',
+    baseURL: '/',
+   },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module

@@ -46,7 +46,7 @@
 
 <script>
 export default {
-    layout: 'defaultNoVuetify',
+    layout: 'default',
   middleware: 'auth',
   auth: 'guest',
   data(){

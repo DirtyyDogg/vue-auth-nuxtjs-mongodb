@@ -11,7 +11,7 @@ async function start () {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)
 
-  const { host, port } = nuxt.options.server
+  //const { host, port } = nuxt.options.server
 
   // Build only in dev mode
   if (config.dev) {
@@ -25,10 +25,15 @@ async function start () {
   app.use(nuxt.render)
 
   // Listen the server
-  app.listen(port, host)
-  consola.ready({
-    message: `Server listening on http://${host}:${port}`,
-    badge: true
-  })
+  //app.listen(port, host)
+ // consola.ready({
+ //   message: `Server listening on http://${host}:${port}`,
+  //  badge: true
+ // })
+ var server = app.listen(3000, '0.0.0.0', function () {
+     var host = server.address().address;
+     var port = server.address().port;
+     console.log('Example app listening at http://%s:%s', host, port);
+});
 }
 start()

@@ -1,4 +1,4 @@
-const config = require('../config')
+const config = require('../config/config')
 const { Router } = require('express')
 
 const router = Router()
