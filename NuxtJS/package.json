@@ -5,7 +5,7 @@
   "author": "Ricardo Breddels",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt --port 3000",
     "build": "nuxt build",
     "start": "nuxt start",
     "start-mongod": "mongod -dbpath /workspace/vue-auth-nuxtjs-mongodb/data/db -bind_ip 0.0.0.0",
