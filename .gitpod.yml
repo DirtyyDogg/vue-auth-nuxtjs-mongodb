@@ -1,7 +1,9 @@
 tasks:
   - init: cd NuxtJS && yarn install && yarn run build
     command: cd NuxtJS && yarn run start-mongod && yarn run dev
-image: gitpod/workspace-mongodb
+image:
+  file: .gitpod.Dockerfile
+#image: gitpod/workspace-mongodb
 
   
   

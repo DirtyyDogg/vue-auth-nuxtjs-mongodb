@@ -1,49 +1,22 @@
-FROM gitpod/workspace-mongodb
-                    
+FROM gitpod/workspace-full
+
 USER gitpod
-RUN sudo apt-get update && \
-    sudo apt-get install -y xyz net-tools && \
-    sudo rm -rf /var/lib/apt/lists/*
 
-RUN useradd --create-home --shell /bin/bash user \
-    && echo "user ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/user
+# Install Julia
+RUN sudo apt-get update \
+    && sudo apt-get install -y \
+        build-essential \
+        libatomic1 \
+        python \
+        gfortran \
+        perl \
+        wget \
+        m4 \
+        cmake \
+        pkg-config \
+        julia \
+    && sudo rm -rf /var/lib/apt/lists/*
 
-# Don't be root.
-USER user
-ENV HOME /home/user
-WORKDIR /home/user
-
-# Configure bash prompt.
-RUN echo "\n# Colored and git aware prompt." >> /home/user/.bashrc \
- && echo "PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$(__git_ps1 \" (%s)\") $ '" >> /home/user/.bashrc
-
-# Install the latest Node Version Manager.
-RUN wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-
-# Install latest Node.js, npm and Yarn.
-ENV NVM_DIR="/home/user/.nvm"
-RUN . $NVM_DIR/nvm.sh \
- && nvm install v10.15.0 \
- && npm install -g yarn
-ENV PATH="${PATH}:${NVM_DIR}/versions/node/v10.15.0/bin"
-
-# Install the Theia IDE with all features available.
-COPY --chown=user:user theia /home/user/.theia/
-RUN cd /home/user/.theia/ \
- && yarn \
- && yarn theia build
-
-# Configure language server executable for Theia.
-ENV CPP_CLANGD_COMMAND clangd-7
-
-# Add default Supervisor configuration.
-COPY supervisord.conf /etc/
-
-# Expose remote access ports.
-EXPOSE 22 8087 8088 8089 8090
-
-# Fallback workspace path for IDEs.
-ENV WORKSPACE /home/user/
-
-# Run all Supervisor services when the container starts.
-CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
+# Give control back to Gitpod Layer
+USER root
+##FROM gitpod/workspace-mongodb##
