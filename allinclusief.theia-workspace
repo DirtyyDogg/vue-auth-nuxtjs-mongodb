@@ -1,0 +1,17 @@
+{
+   "folders": [
+      {
+         "path": ""
+      },
+      {
+         "path": "file:///home/gitpod"
+      },
+      {
+         "path": "file:///home/linuxbrew"
+      },
+      {
+         "path": "file:///"
+      }
+   ],
+   "settings": {}
+}
