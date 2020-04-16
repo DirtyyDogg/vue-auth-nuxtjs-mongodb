@@ -1,4 +1,4 @@
-FROM buildpack-deps:focall
+FROM buildpack-deps:focal
 
 ### base ###
 RUN yes | unminimize \
