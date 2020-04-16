@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "start-mongod": "mongod -bind_ip 0.0.0.0",
+    "start-mongod": "mongod -dbpath /workspace/vue-auth-nuxtjs-mongodb/data/db -bind_ip 0.0.0.0",
     "generate": "nuxt generate"
   },
   "dependencies": {
