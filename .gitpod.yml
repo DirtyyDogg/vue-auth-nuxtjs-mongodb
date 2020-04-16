@@ -1,8 +1,8 @@
-tasks:
-  - init: cd NuxtJS && yarn install && yarn run build
-    command: cd NuxtJS && yarn run start-mongod && yarn run dev
 image:
   file: .gitpod.Dockerfile
+tasks:
+ - init: . ${GITPOD_REPO_ROOT}/.theia/init_tasks.sh      
+
 #image: gitpod/workspace-mongodb
 
   
