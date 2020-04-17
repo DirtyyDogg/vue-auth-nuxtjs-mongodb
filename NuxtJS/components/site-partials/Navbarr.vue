@@ -66,7 +66,7 @@
 export default {
     data () {
         return {
-            showNav: true
+            showNav: false
         }
     }
 }

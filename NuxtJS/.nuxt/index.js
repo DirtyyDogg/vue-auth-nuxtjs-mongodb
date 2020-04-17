@@ -14,9 +14,10 @@ import { createStore } from './store.js'
 
 import nuxt_plugin_workbox_563c060b from 'nuxt_plugin_workbox_563c060b' // Source: ./workbox.js (mode: 'client')
 import nuxt_plugin_nuxticons_09523df9 from 'nuxt_plugin_nuxticons_09523df9' // Source: ./nuxt-icons.js (mode: 'all')
-import nuxt_plugin_bootstrapvue_b7ec8044 from 'nuxt_plugin_bootstrapvue_b7ec8044' // Source: ./bootstrap-vue.js (mode: 'all')
 import nuxt_plugin_plugin_5756ab16 from 'nuxt_plugin_plugin_5756ab16' // Source: ./vuetify/plugin.js (mode: 'all')
 import nuxt_plugin_axios_4aadfea2 from 'nuxt_plugin_axios_4aadfea2' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_buefy_c6f00000 from 'nuxt_plugin_buefy_c6f00000' // Source: ./buefy.js (mode: 'all')
+import nuxt_plugin_BuefyPlugin_dd7a1c96 from 'nuxt_plugin_BuefyPlugin_dd7a1c96' // Source: ../plugins/BuefyPlugin.js (mode: 'client')
 import nuxt_plugin_IframePlugin_4f941d6c from 'nuxt_plugin_IframePlugin_4f941d6c' // Source: ../plugins/IframePlugin.js (mode: 'client')
 import nuxt_plugin_VueFriendlyIframe_6c6f8fd0 from 'nuxt_plugin_VueFriendlyIframe_6c6f8fd0' // Source: ../plugins/VueFriendlyIframe.js (mode: 'client')
 import nuxt_plugin_plugin_5d928eab from 'nuxt_plugin_plugin_5d928eab' // Source: ./auth/plugin.js (mode: 'all')
@@ -66,7 +67,7 @@ async function createApp (ssrContext) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Express CRUD","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My remarkable Nuxt.js project"},{"hid":"mobile-web-app-capable","name":"mobile-web-app-capable","content":"yes"},{"hid":"apple-mobile-web-app-title","name":"apple-mobile-web-app-title","content":"nuxt-with-express"},{"hid":"author","name":"author","content":"Ricardo Breddels"},{"hid":"theme-color","name":"theme-color","content":"#fff"},{"hid":"og:type","name":"og:type","property":"og:type","content":"website"},{"hid":"og:title","name":"og:title","property":"og:title","content":"nuxt-with-express"},{"hid":"og:site_name","name":"og:site_name","property":"og:site_name","content":"nuxt-with-express"},{"hid":"og:description","name":"og:description","property":"og:description","content":"My remarkable Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.b44be59e.json"},{"rel":"shortcut icon","href":"\u002F_nuxt\u002Ficons\u002Ficon_64.5f6a36.png"},{"rel":"apple-touch-icon","href":"\u002F_nuxt\u002Ficons\u002Ficon_512.5f6a36.png","sizes":"512x512"}],"style":[],"script":[],"htmlAttrs":{"lang":"en"}},
+    head: {"title":"Express CRUD","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My remarkable Nuxt.js project"},{"hid":"mobile-web-app-capable","name":"mobile-web-app-capable","content":"yes"},{"hid":"apple-mobile-web-app-title","name":"apple-mobile-web-app-title","content":"nuxt-with-express"},{"hid":"author","name":"author","content":"Ricardo Breddels"},{"hid":"theme-color","name":"theme-color","content":"#fff"},{"hid":"og:type","name":"og:type","property":"og:type","content":"website"},{"hid":"og:title","name":"og:title","property":"og:title","content":"nuxt-with-express"},{"hid":"og:site_name","name":"og:site_name","property":"og:site_name","content":"nuxt-with-express"},{"hid":"og:description","name":"og:description","property":"og:description","content":"My remarkable Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Source+Code+Pro:400,700"},{"rel":"stylesheet","type":"text\u002Fcss","href":"\u002F\u002Fcdn.materialdesignicons.com\u002F5.0.45\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Roboto:100,300,400,500,700,900&display=swap"},{"rel":"stylesheet","type":"text\u002Fcss","href":"https:\u002F\u002Fcdn.jsdelivr.net\u002Fnpm\u002F@mdi\u002Ffont@latest\u002Fcss\u002Fmaterialdesignicons.min.css"},{"rel":"manifest","href":"\u002F_nuxt\u002Fmanifest.b44be59e.json"},{"rel":"shortcut icon","href":"\u002F_nuxt\u002Ficons\u002Ficon_64.5f6a36.png"},{"rel":"apple-touch-icon","href":"\u002F_nuxt\u002Ficons\u002Ficon_512.5f6a36.png","sizes":"512x512"}],"style":[],"script":[],"htmlAttrs":{"lang":"en"}},
 
     store,
     router,
@@ -189,16 +190,20 @@ async function createApp (ssrContext) {
     await nuxt_plugin_nuxticons_09523df9(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_bootstrapvue_b7ec8044 === 'function') {
-    await nuxt_plugin_bootstrapvue_b7ec8044(app.context, inject)
-  }
-
   if (typeof nuxt_plugin_plugin_5756ab16 === 'function') {
     await nuxt_plugin_plugin_5756ab16(app.context, inject)
   }
 
   if (typeof nuxt_plugin_axios_4aadfea2 === 'function') {
     await nuxt_plugin_axios_4aadfea2(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_buefy_c6f00000 === 'function') {
+    await nuxt_plugin_buefy_c6f00000(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_BuefyPlugin_dd7a1c96 === 'function') {
+    await nuxt_plugin_BuefyPlugin_dd7a1c96(app.context, inject)
   }
 
   if (process.client && typeof nuxt_plugin_IframePlugin_4f941d6c === 'function') {

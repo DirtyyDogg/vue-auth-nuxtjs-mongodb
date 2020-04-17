@@ -25,7 +25,8 @@
             </b-navbar-dropdown>
         </template>
 
-        <template slot="end">
+        <template slot="end"
+            v-if="!$auth.loggedIn">
             <b-navbar-item tag="div">
                 <div class="buttons">
                     <a class="button is-primary">
@@ -37,13 +38,20 @@
                 </div>
             </b-navbar-item>
         </template>
+
+        <template slot="end"
+            v-if="$auth.loggedIn">
+            <b-navbar-item tag="div">
+                <div class="buttons">
+                    
+                    
+                    <nuxt-link to="/user/my-account" class="button is-primary" exact-active-class="active">My Account</nuxt-link> 
+                        
+                    <nuxt-link to="/user/logout" class="button is-light" exact-active-class="active">Logout</nuxt-link>        
+    
+                </div>
+            </b-navbar-item>
+        </template>
+
     </b-navbar>
 </template>
-
-
-
-<script>
-export default {
-    
-}
-</script>

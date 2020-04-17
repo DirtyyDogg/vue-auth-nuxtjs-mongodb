@@ -13,7 +13,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700' },
     ]
   },
   /*
@@ -30,6 +32,7 @@ module.exports = {
   */
   plugins: [
       // ssr: false alleen include op client-side
+      { src: '~/plugins/BuefyPlugin.js', ssr: false },
       { src: '~/plugins/IframePlugin.js', ssr: false },
       { src: '~/plugins/VueFriendlyIframe.js', ssr: false }
   ],
@@ -49,8 +52,9 @@ module.exports = {
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    'bootstrap-vue/nuxt',
-    '@nuxtjs/bulma',
+    //'@nuxtjs/bulma',    
+    'nuxt-buefy',
+    //'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
@@ -99,7 +103,7 @@ module.exports = {
   ** https://github.com/nuxt-community/vuetify-module
   */
     vuetify: {
-        customVariables: ['~/assets/variables.scss'],
+        customVariables: ['./assets/variables.scss'],
         theme: {
             dark: true,
             themes: {
