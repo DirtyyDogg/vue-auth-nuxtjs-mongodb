@@ -4,6 +4,7 @@
 
 <script>
 export default {
+  layout: 'defaultVuetify',
   name: 'app',
   data() {
       return {

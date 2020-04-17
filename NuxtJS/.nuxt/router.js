@@ -3,7 +3,9 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _00297813 = () => interopDefault(import('../pages/articles/index.vue' /* webpackChunkName: "pages/articles/index" */))
 const _f1cf6462 = () => interopDefault(import('../pages/indexvuetify.vue' /* webpackChunkName: "pages/indexvuetify" */))
+const _73109ea2 = () => interopDefault(import('../pages/articles/add.vue' /* webpackChunkName: "pages/articles/add" */))
 const _30dfd0b8 = () => interopDefault(import('../pages/user/login.vue' /* webpackChunkName: "pages/user/login" */))
 const _382b4ecb = () => interopDefault(import('../pages/user/logout.vue' /* webpackChunkName: "pages/user/logout" */))
 const _28768a66 = () => interopDefault(import('../pages/user/my-account.vue' /* webpackChunkName: "pages/user/my-account" */))
@@ -12,6 +14,8 @@ const _a2a5ba7e = () => interopDefault(import('../pages/user/adm/dashboard/index
 const _381b6f09 = () => interopDefault(import('../pages/user/adm/dashboard/inspire.vue' /* webpackChunkName: "pages/user/adm/dashboard/inspire" */))
 const _692bc90e = () => interopDefault(import('../pages/user/adm/dashboard/inspire2.vue' /* webpackChunkName: "pages/user/adm/dashboard/inspire2" */))
 const _39f0e954 = () => interopDefault(import('../pages/user/adm/dashboard/welcome/index.vue' /* webpackChunkName: "pages/user/adm/dashboard/welcome/index" */))
+const _52db5d04 = () => interopDefault(import('../pages/articles/_id/index.vue' /* webpackChunkName: "pages/articles/_id/index" */))
+const _7fa7db66 = () => interopDefault(import('../pages/articles/_id/update.vue' /* webpackChunkName: "pages/articles/_id/update" */))
 const _7495a50f = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 // TODO: remove in Nuxt 3
@@ -31,9 +35,17 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/articles",
+    component: _00297813,
+    name: "articles"
+  }, {
     path: "/indexvuetify",
     component: _f1cf6462,
     name: "indexvuetify"
+  }, {
+    path: "/articles/add",
+    component: _73109ea2,
+    name: "articles-add"
   }, {
     path: "/user/login",
     component: _30dfd0b8,
@@ -66,6 +78,14 @@ export const routerOptions = {
     path: "/user/adm/dashboard/welcome",
     component: _39f0e954,
     name: "user-adm-dashboard-welcome"
+  }, {
+    path: "/articles/:id",
+    component: _52db5d04,
+    name: "articles-id"
+  }, {
+    path: "/articles/:id/update",
+    component: _7fa7db66,
+    name: "articles-id-update"
   }, {
     path: "/",
     component: _7495a50f,
