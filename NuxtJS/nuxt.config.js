@@ -32,7 +32,8 @@ module.exports = {
   */
   plugins: [
       // ssr: false alleen include op client-side
-      { src: '~/plugins/BuefyPlugin.js', ssr: false },
+      { src: '~/plugins/vue-js-modal.js', ssr: true },
+      { src: '~/plugins/PluginModal.js', ssr: false },
       { src: '~/plugins/IframePlugin.js', ssr: false },
       { src: '~/plugins/VueFriendlyIframe.js', ssr: false }
   ],
@@ -54,7 +55,7 @@ module.exports = {
     // Doc: https://bootstrap-vue.js.org
     //'@nuxtjs/bulma',    
     'nuxt-buefy',
-    //'bootstrap-vue/nuxt',
+    'bootstrap-vue/nuxt',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',

@@ -4,8 +4,13 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _00297813 = () => interopDefault(import('../pages/articles/index.vue' /* webpackChunkName: "pages/articles/index" */))
+const _1c3b70e0 = () => interopDefault(import('../pages/contact/index.vue' /* webpackChunkName: "pages/contact/index" */))
 const _f1cf6462 = () => interopDefault(import('../pages/indexvuetify.vue' /* webpackChunkName: "pages/indexvuetify" */))
+const _5508524e = () => interopDefault(import('../pages/over-ons.vue' /* webpackChunkName: "pages/over-ons" */))
+const _03b2bf3f = () => interopDefault(import('../pages/projecten.vue' /* webpackChunkName: "pages/projecten" */))
 const _73109ea2 = () => interopDefault(import('../pages/articles/add.vue' /* webpackChunkName: "pages/articles/add" */))
+const _478ee4ba = () => interopDefault(import('../pages/contact/chat.vue' /* webpackChunkName: "pages/contact/chat" */))
+const _437ff5df = () => interopDefault(import('../pages/dev/containers.vue' /* webpackChunkName: "pages/dev/containers" */))
 const _30dfd0b8 = () => interopDefault(import('../pages/user/login.vue' /* webpackChunkName: "pages/user/login" */))
 const _382b4ecb = () => interopDefault(import('../pages/user/logout.vue' /* webpackChunkName: "pages/user/logout" */))
 const _28768a66 = () => interopDefault(import('../pages/user/my-account.vue' /* webpackChunkName: "pages/user/my-account" */))
@@ -39,13 +44,33 @@ export const routerOptions = {
     component: _00297813,
     name: "articles"
   }, {
+    path: "/contact",
+    component: _1c3b70e0,
+    name: "contact"
+  }, {
     path: "/indexvuetify",
     component: _f1cf6462,
     name: "indexvuetify"
   }, {
+    path: "/over-ons",
+    component: _5508524e,
+    name: "over-ons"
+  }, {
+    path: "/projecten",
+    component: _03b2bf3f,
+    name: "projecten"
+  }, {
     path: "/articles/add",
     component: _73109ea2,
     name: "articles-add"
+  }, {
+    path: "/contact/chat",
+    component: _478ee4ba,
+    name: "contact-chat"
+  }, {
+    path: "/dev/containers",
+    component: _437ff5df,
+    name: "dev-containers"
   }, {
     path: "/user/login",
     component: _30dfd0b8,

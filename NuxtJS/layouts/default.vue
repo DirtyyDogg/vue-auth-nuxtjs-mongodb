@@ -1,18 +1,30 @@
 <template>
 <div class="container">
-    <Navbar />
-    <nuxt />
+        <div class="header">
+            <h1>Here might be a page title</h1>
+        
 
-</div>
-     
+    <div class="main">
+        <Modalcomp />
+        <Modalcompp />
+       
+        <Navbar />
+        <nuxt />
+        </div>
+        </div>
+        </div>
+    
 </template>
+  
     
 
 <script>
 import Navbar from '~/components/site-partials/Navbar'
+
+
 export default {
     components: {
-        Navbar
+        Navbar,
     },
     data () {
         return {
@@ -21,6 +33,9 @@ export default {
     }
 }
 </script>
+
+
+
 <style>
     html {
     font-family: "Source Sans Pro", "Helvetica Neue", Arial, sans-serif;
